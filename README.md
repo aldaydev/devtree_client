@@ -8,6 +8,9 @@ DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 Pçaginas de "login" y "register"
 
 * Estilos iniciales de "login" y "register"
+* Formulario de registro
+* Instalación React Hook Form
+* Validaciones y mensajes de error
 
 
 ## Sprint 1 (frontend)
