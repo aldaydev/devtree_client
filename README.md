@@ -8,3 +8,7 @@ Configuración inicial del frontend.
 
 * Instalación de React con TypeScript (Vite).
 * Instalación y configuración de Tailwind
+  npm i -D tailwindcss@3 postcss autoprefixer
+  npx tailwindcss init -p ==> Crear el archivo tailwind.config.js
+* Instalación React-router-dom
+  
