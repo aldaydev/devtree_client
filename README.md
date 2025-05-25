@@ -11,6 +11,8 @@ Pçaginas de "login" y "register"
 * Formulario de registro
 * Instalación React Hook Form
 * Validaciones y mensajes de error
+* Mensajes de éxito o error con sonner
+* Peticiones con Axios
 
 
 ## Sprint 1 (frontend)
