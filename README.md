@@ -2,10 +2,15 @@
 
 DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+## Sprint 3 (frontend)
+Conexión de "login" con backend.
+
+* Json Web Token config.
+
 
 ## Sprint 2 (frontend)
 
-Pçaginas de "login" y "register"
+Páginas de "login" y "register". Conexión de register con backend.
 
 * Estilos iniciales de "login" y "register"
 * Formulario de registro
