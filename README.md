@@ -2,6 +2,14 @@
 
 DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+
+## Sprint 2 (frontend)
+
+Pçaginas de "login" y "register"
+
+* Estilos iniciales de "login" y "register"
+
+
 ## Sprint 1 (frontend)
 
 Configuración inicial del frontend.
