@@ -10,6 +10,7 @@ Conexión de "login" con backend.
 * Instalación y configuración React Query 
   npm i @tanstack/react-query
   npm i @tanstack/react-query-devtools
+* Redirección si no hay token
 
 
 ## Sprint 2 (frontend)
