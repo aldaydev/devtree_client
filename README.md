@@ -7,6 +7,9 @@ Conexión de "login" con backend.
 
 * Almacenando token en LocalStorage
 * Páginas de "links" y "profile".
+* Instalación y configuración React Query 
+  npm i @tanstack/react-query
+  npm i @tanstack/react-query-devtools
 
 
 ## Sprint 2 (frontend)
