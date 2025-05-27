@@ -11,6 +11,7 @@ Conexión de "login" con backend.
   npm i @tanstack/react-query
   npm i @tanstack/react-query-devtools
 * Redirección si no hay token
+* Actualizar los datos del perfil desde el front
 
 
 ## Sprint 2 (frontend)
