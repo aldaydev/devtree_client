@@ -4,7 +4,9 @@ DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
 ## Sprint 4 (frontend)
 
-Gestiona subida de imágenes
+Gestionar subida de imágenes
+
+* Creación de un mutation )react.query) para la subida de imágenes
 
 
 
