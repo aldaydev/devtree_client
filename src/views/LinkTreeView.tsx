@@ -10,13 +10,9 @@ const handleUrlChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     console.log(e.target.name);
 
-    const currentLinks = devTreeLinks.forEach(item => {
-        if(item.name === e.target.name){
-            item.url += e.target.value
-        }
-    })
+    const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? {...item, url: e.target.value } : item)
 
-    console.log(currentLinks);
+    setDevTreeLinks(updatedLinks);
 
 }
 
