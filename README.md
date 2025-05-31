@@ -6,8 +6,10 @@ DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
 Gestionar subida de imágenes
 
-* Creación de un mutation )react.query) para la subida de imágenes
-
+* Creación de un mutation (react.query) para la subida de imágenes
+* Creación del formulario para redes sociales
+* Instalación y configuracón de Headless UI
+  npm install @headlessui/react
 
 
 ## Sprint 3 (frontend)
