@@ -38,13 +38,16 @@ useEffect(() => {
 const handleUrlChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? {...item, url: e.target.value } : item)
     setDevTreeLinks(updatedLinks);
-    queryClient.setQueryData(['user'], (prevData: User) => {
-        return {
-            ...prevData,
-            links: JSON.stringify(updatedLinks)
-        }
-    })
+    
+    // queryClient.setQueryData(['user'], (prevData: User) => {
+    //     return {
+    //         ...prevData,
+    //         links: JSON.stringify(updatedLinks)
+    //     }
+    // })
 }
+
+const links: SocialNetwork[] = JSON.parse(user.links);
 
 const handleEnableLink = (socialName: string) => {
     const updatedEnabled = devTreeLinks.map(item => {
@@ -57,11 +60,26 @@ const handleEnableLink = (socialName: string) => {
         }
         return item
     })
+
     setDevTreeLinks(updatedEnabled);
+
+    let updatedItems : SocialNetwork[] = [];
+
+    const selectedSocialNetwork = updatedEnabled.find(link => link.name === socialName);
+    if(selectedSocialNetwork?.enabled){
+        const newItem: SocialNetwork = {...selectedSocialNetwork, id: links.length + 1}
+        console.log(newItem);
+        updatedItems = [...links, newItem];
+    }else{
+        console.log('Está desahibilidata');
+    }
+    
+
+    //Guarda la nueva disposición de links "enabled" en el cache para mejorar la rapidez en el front
     queryClient.setQueryData(['user'], (prevData: User) => {
         return {
             ...prevData,
-            links: JSON.stringify(updatedEnabled)
+            links: JSON.stringify(updatedItems)
         }
     })
 }

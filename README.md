@@ -10,6 +10,10 @@ Gestionar subida de imágenes
 * Creación del formulario para redes sociales
 * Instalación y configuracón de Headless UI
   npm install @headlessui/react
+* Configurando preview de los enlaces de redes sociales
+* Cofigurando dragndrop (dnd kit)
+  npm install @dnd-kit/core
+
 
 
 ## Sprint 3 (frontend)
