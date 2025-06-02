@@ -8,6 +8,7 @@ import api from "../config/axios";
 
 export default function RegisterView() {
 
+    //Valores iniciales para el formulario de registro
     const initialValues = {
         name: '',
         email: '',
@@ -16,12 +17,18 @@ export default function RegisterView() {
         password_confirmation: ''
     }
 
+    // Inicializamos useForm (React Hook Form)
     const {register, watch, reset, handleSubmit, formState: { errors }} = useForm<RegisterForm>({defaultValues: initialValues});
 
+    // Observaremos y guardaremos la constraseña 
     const password = watch('password');
 
+    // Función al hacer click en registrar
+    // Esta función se pasa como callback a handleSubmit (React Hook Form)
+    // Recibirá automáticamente los parámetros incluidos en "register"
     const handleRegister = async (formData: RegisterForm) => {
         try {
+            //Llamada al endpoint de registro via "axios" (api)
             const {data} = await api.post(`/auth/register`, formData);
             toast.success(data);
             reset();
