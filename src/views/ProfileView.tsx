@@ -41,7 +41,6 @@ export default function ProfileView() {
                     image: image
                 }
             });
-            // queryClient.invalidateQueries({queryKey: ['user']})
         }
     });
 
@@ -52,7 +51,10 @@ export default function ProfileView() {
     }
 
     const handleUserProfileForm = (formData : ProfileForm) => {
-        updateProfileMutation.mutate(formData);
+        const user: User = queryClient.getQueryData(['user'])!;
+        user.description = formData.description;
+        user.handle = formData.handle;
+        updateProfileMutation.mutate(user);
     };
 
     return (
@@ -85,7 +87,11 @@ export default function ProfileView() {
                     className="border-none bg-slate-100 rounded-lg p-2"
                     placeholder="Tu Descripción"
                     {...register('description', {
-                        required: 'La descripción es obligatoria'
+                        required: 'La descripción es obligatoria',
+                        maxLength: {
+                            value: 150,
+                            message: 'La descripción no puede superar los 150 caracteres'
+                        }
                     })}
                 />
 
