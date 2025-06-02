@@ -7,13 +7,14 @@ export default function LinkTreeView() {
 const [devTreeLinks, setDevTreeLinks] = useState(social);
 
 const handleUrlChange = (e : React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    console.log(e.target.name);
-
     const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? {...item, url: e.target.value } : item)
-
     setDevTreeLinks(updatedLinks);
+}
 
+const handleEnableLink = (socialName: string) => {
+    const updatedEnabled = devTreeLinks.map(item => item.name === socialName ? {...item, enabled : !item.enabled} : item)
+
+    setDevTreeLinks(updatedEnabled);
 }
 
     return (
@@ -23,6 +24,7 @@ const handleUrlChange = (e : React.ChangeEvent<HTMLInputElement>) => {
                     key={item.name}
                     item={item}
                     handleUrlChange={handleUrlChange}
+                    handleEnableLink={handleEnableLink}
                 />
             ))}
         </div>
