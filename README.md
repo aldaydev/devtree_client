@@ -12,7 +12,7 @@ Gestionar subida de imágenes
   npm install @headlessui/react
 * Configurando preview de los enlaces de redes sociales
 * Cofigurando dragndrop (dnd kit)
-  npm install @dnd-kit/core
+  npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
 
 
 
