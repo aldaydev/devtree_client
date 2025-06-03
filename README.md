@@ -2,9 +2,14 @@
 
 DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+## Sprint 5 (frontend)
+
+Creación de la página pública del usuario
+
+
 ## Sprint 4 (frontend)
 
-Gestionar subida de imágenes
+Gestionar subida de imágenes, activación y listado de enlaces
 
 * Creación de un mutation (react.query) para la subida de imágenes
 * Creación del formulario para redes sociales
@@ -13,7 +18,6 @@ Gestionar subida de imágenes
 * Configurando preview de los enlaces de redes sociales
 * Cofigurando dragndrop (dnd kit)
   npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
-
 
 
 ## Sprint 3 (frontend)
