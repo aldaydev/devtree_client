@@ -9,80 +9,123 @@ import type { SocialNetwork, User } from "../types";
 
 export default function LinkTreeView() {
 
-const [devTreeLinks, setDevTreeLinks] = useState(social);
+    const [devTreeLinks, setDevTreeLinks] = useState(social);
 
-const queryClient = useQueryClient();
-const user: User = queryClient.getQueryData(['user'])!;
+    const queryClient = useQueryClient();
+    const user: User = queryClient.getQueryData(['user'])!;
 
-const { mutate } = useMutation({
-    mutationFn: updateProfile,
-    onError: (error) => {
-        toast.error(error.message)
-    },
-    onSuccess: () => {
-        toast.success('Actualizado correctamente')
-    }
-})
-
-useEffect(() => {
-    const updatedData = devTreeLinks.map((item) => {
-        const userLink = JSON.parse(user.links).find((link: SocialNetwork) => link.name === item.name)
-        if(userLink){
-            return {...item, url: userLink.url, enabled: userLink.enabled}
+    const { mutate } = useMutation({
+        mutationFn: updateProfile,
+        onError: (error) => {
+            toast.error(error.message)
+        },
+        onSuccess: () => {
+            toast.success('Actualizado correctamente')
         }
-        return item
     })
-    setDevTreeLinks(updatedData)
-}, [user])
 
-const handleUrlChange = (e : React.ChangeEvent<HTMLInputElement>) => {
-    const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? {...item, url: e.target.value } : item)
-    setDevTreeLinks(updatedLinks);
-    
-    // queryClient.setQueryData(['user'], (prevData: User) => {
-    //     return {
-    //         ...prevData,
-    //         links: JSON.stringify(updatedLinks)
-    //     }
-    // })
-}
-
-const links: SocialNetwork[] = JSON.parse(user.links);
-
-const handleEnableLink = (socialName: string) => {
-    const updatedEnabled = devTreeLinks.map(item => {
-        if(item.name === socialName){
-            if(isValidUrl(item.url)){
-                return {...item, enabled : !item.enabled}
-            }else{
-                toast.error('URL no válida');
+    useEffect(() => {
+        const updatedData = devTreeLinks.map((item) => {
+            const userLink = JSON.parse(user.links).find((link: SocialNetwork) => link.name === item.name)
+            if (userLink) {
+                return { ...item, url: userLink.url, enabled: userLink.enabled }
             }
-        }
-        return item
-    })
+            return item
+        })
+        setDevTreeLinks(updatedData)
+    }, [user])
 
-    setDevTreeLinks(updatedEnabled);
 
-    let updatedItems : SocialNetwork[] = [];
-
-    const selectedSocialNetwork = updatedEnabled.find(link => link.name === socialName);
-    if(selectedSocialNetwork?.enabled){
-        const newItem: SocialNetwork = {...selectedSocialNetwork, id: links.length + 1}
-        console.log(newItem);
-        updatedItems = [...links, newItem];
-    }else{
-        console.log('Está desahibilidata');
+    const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? { ...item, url: e.target.value } : item)
+        setDevTreeLinks(updatedLinks);
     }
-    
 
-    //Guarda la nueva disposición de links "enabled" en el cache para mejorar la rapidez en el front
-    queryClient.setQueryData(['user'], (prevData: User) => {
-        return {
-            ...prevData,
-            links: JSON.stringify(updatedItems)
+    //Creamos una copia de la información de la base de datos
+    const links: SocialNetwork[] = JSON.parse(user.links);
+    console.log(links);
+
+    //Función que gestiona el cambio de activación de los links
+    const handleEnableLink = (socialName: string) => {
+
+        //updateEnable dará como resultado el objeto de la red social modificada
+        const updatedEnabled = devTreeLinks.map(item => {
+            //Si el nombre de la red social en el botón y en el objeto inicial son iguales
+            if (item.name === socialName) {
+                // Si, además, es una URL correcta
+                if (isValidUrl(item.url)) {
+                    //Retornamos el objeto completo con el campo enabled modificado
+                    return { ...item, enabled: !item.enabled }
+                } else {
+                    // Si no es una URL válida, mensaje de error
+                    toast.error('URL no válida');
+                }
+            }
+            return item
+        })
+
+        // Almacenamos en el estado el array completo con la red social actualizada
+        setDevTreeLinks(updatedEnabled);
+
+        // Creamos un array vacío que incluirá una copia de las redes sociales "enabled"
+        let updatedItems: SocialNetwork[] = [];
+
+        // Encontramos las red social que estamos modificando en el array
+        const selectedSocialNetwork = updatedEnabled.find(link => link.name === socialName);
+
+        // Si está habilitada
+        if (selectedSocialNetwork?.enabled) {
+            //Filtramos los links metidos en el array copia y calculamos su lenght. El id será eso + 1
+            const id = links.filter(link => link.id).length + 1
+
+            //Si 
+            if (links.some(link => link.name === socialName)) {
+                updatedItems = links.map(link => {
+                    if (link.name === socialName) {
+                        return {
+                            ...link,
+                            enabled: true,
+                            id: id
+                        }
+                    } else {
+                        return link
+                    }
+                })
+            } else {
+                const newItem: SocialNetwork = { ...selectedSocialNetwork, id: id }
+                updatedItems = [...links, newItem];
+            }
+
+        } else {
+            const indexToUpdate = links.findIndex(link => link.name === socialName)
+            
+            updatedItems = links.map(link => {
+                if (link.name === socialName) {
+                    return {
+                        ...link,
+                        id: 0,
+                        enabled: false
+                    }
+                } else if (link.id > indexToUpdate && (indexToUpdate !== 0 && link.id === 1)) {
+                    return {
+                        ...link,
+                        id: link.id - 1
+                    }
+                } else {
+                    return link
+                }
+            })
         }
-    })
-}
+        console.log(selectedSocialNetwork);
+
+        //Guarda la nueva disposición de links "enabled" en el cache para mejorar la rapidez en el front
+        queryClient.setQueryData(['user'], (prevData: User) => {
+            return {
+                ...prevData,
+                links: JSON.stringify(updatedItems)
+            }
+        })
+    }
 
     return (
         <div className="space-y-5">
@@ -94,7 +137,7 @@ const handleEnableLink = (socialName: string) => {
                     handleEnableLink={handleEnableLink}
                 />
             ))}
-            <button 
+            <button
                 className="bg-cyan-400 p-2 text-lg w-full text-slate-600 rounded font-bold"
                 onClick={() => mutate(user)}
             >
