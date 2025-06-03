@@ -43,7 +43,7 @@ export default function LinkTreeView() {
 
     //Creamos una copia de la información de la base de datos
     const links: SocialNetwork[] = JSON.parse(user.links);
-    console.log(links);
+    console.log('Links', links);
 
     //Función que gestiona el cambio de activación de los links
     const handleEnableLink = (socialName: string) => {
@@ -73,7 +73,7 @@ export default function LinkTreeView() {
         // Encontramos las red social que estamos modificando en el array
         const selectedSocialNetwork = updatedEnabled.find(link => link.name === socialName);
 
-        // Si está habilitada
+        // Si lo estás habilitando
         if (selectedSocialNetwork?.enabled) {
             //Filtramos los links metidos en el array copia y calculamos su lenght. El id será eso + 1
             const id = links.filter(link => link.id).length + 1
@@ -97,8 +97,7 @@ export default function LinkTreeView() {
             }
 
         } else {
-            const indexToUpdate = links.findIndex(link => link.name === socialName)
-            
+            const idToUpdate = links.find((link) => link.name === socialName)?.id;
             updatedItems = links.map(link => {
                 if (link.name === socialName) {
                     return {
@@ -106,7 +105,7 @@ export default function LinkTreeView() {
                         id: 0,
                         enabled: false
                     }
-                } else if (link.id > indexToUpdate && (indexToUpdate !== 0 && link.id === 1)) {
+                } else if (link.id > idToUpdate!) {
                     return {
                         ...link,
                         id: link.id - 1
@@ -116,7 +115,6 @@ export default function LinkTreeView() {
                 }
             })
         }
-        console.log(selectedSocialNetwork);
 
         //Guarda la nueva disposición de links "enabled" en el cache para mejorar la rapidez en el front
         queryClient.setQueryData(['user'], (prevData: User) => {
