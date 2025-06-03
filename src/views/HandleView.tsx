@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query";
 import { getUserByHandle } from "../api/DevTreeApi";
 import HandleData from "../components/HandleData";
