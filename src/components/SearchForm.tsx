@@ -13,7 +13,7 @@ export default function SearchForm() {
     const handle = watch('handle');
 
     const handleSearch = () => {
-        const slug = slugify(handle, {delimiter: '_'})
+        const slug = slugify(handle)
         console.log(slug);
     }
 
