@@ -11,7 +11,7 @@ Creación de la página pública del usuario
 * Diseñando la página home
 * Haciendo "slug" del handle en el buscador del home
   npm i react-slugify
-* 
+* Redirecciones y cerrar sesión
 
 ## Sprint 4 (frontend)
 

@@ -14,7 +14,7 @@ export default function HomeNavigation() {
                 to='/auth/register'
                 className=' bg-lime-500 p-2 ml-4 text-slate-800 uppercase font-black text-xs rounded-lg cursor-pointer'
             >
-                Iniciar Sesión
+                Crear cuenta
             </Link>
         
         </>
