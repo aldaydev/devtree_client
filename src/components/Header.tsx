@@ -1,7 +1,7 @@
 import Logo from "./Logo";
 import AdminNavigation from "./nav/AdminNavigation";
 import HomeNavigation from "./nav/HomeNavigation"
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 export default function Header() {
 
@@ -19,7 +19,6 @@ export default function Header() {
                         <HomeNavigation/>
                         :
                         <AdminNavigation/>
-
                     }
 
                 </nav>

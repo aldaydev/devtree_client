@@ -6,6 +6,12 @@ DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
 Creación de la página pública del usuario
 
+* Separando componente del header
+* Creando rutas para el home
+* Diseñando la página home
+* Haciendo "slug" del handle en el buscador del home
+  npm i react-slugify
+* 
 
 ## Sprint 4 (frontend)
 
