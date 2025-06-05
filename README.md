@@ -2,6 +2,11 @@
 
 DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+# Remake 1 (frontend)
+
+* Redefinición de colores (creación de clases personalizadas)
+* Readaptación del header
+
 ## Sprint 5 (frontend)
 
 Creación de la página pública del usuario

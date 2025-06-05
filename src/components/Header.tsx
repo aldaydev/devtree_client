@@ -8,21 +8,18 @@ export default function Header() {
     const { pathname } = useLocation();
 
     return (
-        <header className="bg-slate-800 py-5">
-            <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between">
-                <div className="flex justify-center w-full p-5 lg:p-0 md:w-1/3">
+        <header className="bg-dark py-5 px-[10%] flex justify-between">
+            
+                <div className="">
                     <Logo/>
                 </div>
-                <nav className="md:w-1/3 md:flex md:justify-end md:mx-7">
-
-                    {pathname === '/' ?
+                <nav className="flex items-center gap-6">
+                    {pathname === '/' || !localStorage.AUTH_TOKEN ?
                         <HomeNavigation/>
                         :
                         <AdminNavigation/>
                     }
-
                 </nav>
-            </div>
         </header>
     )
 }

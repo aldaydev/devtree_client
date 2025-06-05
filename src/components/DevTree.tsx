@@ -55,7 +55,7 @@ export default function DevTree({data}: DevTreeProps) {
 
     return (
         <>
-            <Header/>
+            {/* <Header/> */}
             <div className="bg-gray-100  min-h-screen py-10">
                 <main className="mx-auto max-w-5xl p-10 md:p-5">
 

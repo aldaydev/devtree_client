@@ -6,9 +6,9 @@ import Logo from '../components/Logo';
 export default function AuthLayout() {
     return (
         <>
-            <div className="bg-slate-800 min-h-screen">
+            <div className="bg-dark min-h-[calc(100dvh-85px)]">
                 <div className='max-w-lg mx-auto pt-10 px-5'>
-                    <Logo/>
+                    {/* <Logo/> */}
                     
                     <div className="py-10">
                         <Outlet/>

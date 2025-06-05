@@ -4,7 +4,7 @@ import SearchForm from "../components/SearchForm";
 export default function HomeView() {
     return (
         <>
-            <Header/>
+            {/* <Header/> */}
             
             <main className="bg-gray-100 lg:py-10 px-5 min-h-screen bg-no-repeat lg:bg-home lg:bg-home-xl bg-right-top">
                 <div className="max-w-5xl mx-auto mt-10">
