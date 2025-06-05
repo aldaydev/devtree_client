@@ -8,7 +8,7 @@ export default function Header() {
     const { pathname } = useLocation();
 
     return (
-        <header className="bg-dark py-5 px-[10%] flex justify-between">
+        <header className="bg-dark px-[5%] py-5 md:px-[15%]  flex justify-between">
             
                 <div className="">
                     <Logo/>

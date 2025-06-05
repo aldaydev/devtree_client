@@ -60,8 +60,8 @@ export default function SearchForm() {
 
             <input
                 type="submit"
-                className="bg-cyan-400 p-3 text-lg w-full uppercase text-slate-600 rounded-lg font-bold cursor-pointer"
-                value='Obtener mi DevTree'
+                className="bg-[#e9ae50] p-3 text-lg w-full uppercase text-dark rounded-lg font-bold cursor-pointer hover:bg-[#f7b956]"
+                value='COMPROBAR MI ENLACE'
             />
         </form>
     )
