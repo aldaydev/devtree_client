@@ -37,7 +37,7 @@ export default function SearchForm() {
                     type="text"
                     id="username"
                     className="border-none bg-transparent p-2 focus:ring-0 flex-1"
-                    placeholder="elonmusk, zuck, jeffbezos"
+                    placeholder="elcuartetodenos, leiva, theblackkeys"
                     {...register("username", {
                         required: "Un Nombre de Usuario es obligatorio",
                     })}
@@ -53,7 +53,7 @@ export default function SearchForm() {
                 {mutation.error && <p className='text-red-600 font-black text-center'>{mutation.error.message}</p>}
                 {mutation.data && 
                     <p className='text-green-500 font-black text-center'>
-                        {mutation.data} <Link className='text-cyan-500' to={'/auth/register'} state={{username: slugify(username)}}>IR A REGISTRO</Link>
+                        {mutation.data} <Link className='text-orange' to={'/auth/register'} state={{username: slugify(username)}}> IR A REGISTRO</Link>
                     </p>}
             </div>
 

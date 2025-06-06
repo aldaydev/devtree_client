@@ -8,11 +8,13 @@ import ProfileView from './views/ProfileView';
 import HandleView from './views/HandleView';
 import NotFoundView from './views/NotFoundView';
 import HomeView from './views/HomeView';
+import AuthProvider from './context/AuthProvider';
 import Header from './components/Header';
 
 export default function Router() {
     return(
         <BrowserRouter>
+        <AuthProvider>
             <Header/>
             <Routes>
                 <Route element={<AuthLayout/>}>
@@ -36,6 +38,7 @@ export default function Router() {
                 </Route>
 
             </Routes>
+        </AuthProvider>
         </BrowserRouter>
     )
 }

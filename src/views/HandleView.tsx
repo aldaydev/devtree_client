@@ -2,6 +2,7 @@ import { Navigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query";
 import { getUserByUsername } from "../api/DevTreeApi";
 import HandleData from "../components/HandleData";
+import Spinner from "../components/Spinner";
 
 export default function HandleView() {
 
@@ -14,7 +15,7 @@ export default function HandleView() {
     retry: 1
   })
 
-  if(isLoading) return <p className="text-center text-white text-2xl">Cargando...</p>;
+  if(isLoading) return <Spinner/>;
 
   if(error) return <Navigate to={'/404'}/>;
 

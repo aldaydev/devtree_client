@@ -1,13 +1,17 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 export default function AdminNavigation() {
 
+    const {setIsLoggedIn} = useContext(AuthContext)!;
     const queryClient = useQueryClient();
 
     const logout = () => {
         localStorage.removeItem('AUTH_TOKEN');
         queryClient.invalidateQueries({ queryKey: ['user'] });
+        setIsLoggedIn(true);
         location.reload();
     }
 
@@ -20,7 +24,7 @@ export default function AdminNavigation() {
             >
                 <p className='hidden md:block'>Tu cuenta</p>
                 <img
-                    src='/icons/login_icon.svg'
+                    src='/icons/user_icon.svg'
                     className='block md:hidden'
                 />
             </Link>

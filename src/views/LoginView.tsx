@@ -5,8 +5,12 @@ import type { LoginForm } from "../types";
 import { toast } from "sonner";
 import api from "../config/axios";
 import { isAxiosError } from "axios";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export default function LoginView() {
+
+    const {setIsLoggedIn} = useContext(AuthContext)!;
 
     const navigate = useNavigate();
 
@@ -22,6 +26,7 @@ export default function LoginView() {
             const {data} = await api.post(`/auth/login`, formData);
             localStorage.setItem('AUTH_TOKEN', data);
             navigate('/admin');
+            setIsLoggedIn(true);
         } catch (error) {
             if(isAxiosError(error) && error.response){
                 toast.error(error.response.data)
