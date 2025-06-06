@@ -16,13 +16,15 @@ module.exports = {
         "dark": "#1a1818",
         "green": "#60e995",
         "green-light": "#8bf5b4",
-        "orange": "#E8B45F"
+        "orange": "#E8B45F",
+        "orange-light": "#f0c47e"
       },
       textColor: {
         "dark": "#1a1818",
         "green": "#60e995",
         "green-light": "#8bf5b4",
-        "orange": "#e9ae50"
+        "orange": "#e9ae50",
+        "orange-light": "#f0c47e"
       }
     },
   },

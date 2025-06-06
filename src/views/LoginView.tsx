@@ -31,11 +31,11 @@ export default function LoginView() {
 
     return (
         <>
-            <h1 className="text-4xl text-white font-bold">Inicial Sesión</h1>
+            <h1 className="text-4xl text-white font-bold">Iniciar Sesión</h1>
 
             <form
                 onSubmit={handleSubmit(handleLogin)}
-                className="bg-white px-5 py-20 rounded-lg space-y-10 mt-10"
+                className="bg-white px-5 py-10 rounded-lg space-y-10 mt-10"
                 noValidate
             >
                 <div className="grid grid-cols-1 space-y-3">
@@ -75,7 +75,7 @@ export default function LoginView() {
 
                 <input
                     type="submit"
-                    className="bg-cyan-400 p-3 text-lg w-full uppercase text-slate-600 rounded-lg font-bold cursor-pointer"
+                    className="bg-green p-3 text-lg w-full uppercase text-dark hover:bg-green-light rounded-lg font-bold cursor-pointer"
                     value='Iniciar Sesión'
                 />
             </form>
@@ -85,7 +85,7 @@ export default function LoginView() {
                     to='/auth/register'
                     className="text-center text-white text-lg block"
                 >
-                    ¿No tienes cuenta? Crea una aquí
+                    ¿No tienes cuenta? <span className="text-orange">Crea una aquí</span>
                 </Link>
             </nav>
         </>

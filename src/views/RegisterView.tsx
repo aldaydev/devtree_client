@@ -50,7 +50,7 @@ export default function RegisterView() {
             <form 
                 onSubmit={handleSubmit(handleRegister)}
                 noValidate
-                className="bg-white px-5 py-20 rounded-lg space-y-10 mt-10"
+                className="bg-white px-5 py-5 rounded-lg space-y-6 mt-7"
             >
 
                 <div className="grid grid-cols-1 space-y-3">
@@ -139,17 +139,17 @@ export default function RegisterView() {
 
                 <input
                     type="submit"
-                    className="bg-cyan-400 p-3 text-lg w-full uppercase text-slate-600 rounded-lg font-bold cursor-pointer"
+                    className="bg-orange hover:bg-orange-light p-3 text-lg w-full uppercase text-dark rounded-lg font-bold cursor-pointer"
                     value='Crear Cuenta'
                 />  
             </form>
 
-            <nav className="mt-10">
+            <nav className="mt-6">
                 <Link 
                     to='/auth/login'
                     className="text-center text-white text-lg block"
                 >
-                    ¿Ya tienes cuenta? Inicia sesión
+                    ¿Ya tienes cuenta? <span className="text-green">Inicia sesión</span> 
                 </Link>
             </nav>
         </>

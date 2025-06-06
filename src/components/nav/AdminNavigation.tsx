@@ -12,10 +12,11 @@ export default function AdminNavigation() {
 
     return (
         <button
-            className=" bg-lime-500 p-2 text-slate-800 uppercase font-black text-xs rounded-lg cursor-pointer"
+            className="p-[7px] bg-green text-dark uppercase md:py-2 md:px-3 font-black text-xs rounded-lg cursor-pointer hover:bg-green-light hover:transition-colors tracking-wide flex items-center gap-2 scale-90 sm:scale-100"
             onClick={logout}
         >
-            Cerrar Sesión
+            <p className='hidden md:block'>Cerrar Sesión</p>
+            <img src='/icons/logout_icon.svg'/>
         </button>
     )
 }

@@ -8,11 +8,9 @@ export default function AuthLayout() {
         <>
             <div className="bg-dark min-h-[calc(100dvh-85px)]">
                 <div className='max-w-lg mx-auto pt-10 px-5'>
-                    {/* <Logo/> */}
                     
-                    <div className="py-10">
-                        <Outlet/>
-                    </div>
+                    <Outlet/>
+
                 </div>
             </div>
 
