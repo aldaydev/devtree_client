@@ -15,7 +15,7 @@ export default function RegisterView() {
     const initialValues = {
         name: '',
         email: '',
-        handle: location?.state?.handle || '',
+        username: location?.state?.username || '',
         password: '',
         password_confirmation: ''
     }
@@ -88,18 +88,18 @@ export default function RegisterView() {
                 </div>
 
                 <div className="grid grid-cols-1 space-y-3">
-                    <label htmlFor="handle" className="text-2xl text-slate-500">Handle</label>
+                    <label htmlFor="username" className="text-2xl text-slate-500">Username</label>
                     <input
-                        id="handle"
+                        id="username"
                         type="text"
-                        placeholder="Nombre de usuario: sin espacios"
+                        placeholder="Nombre de usuario único: sin espacios"
                         className="bg-slate-100 border-none p-3 rounded-lg placeholder-slate-400"
-                        {...register('handle', {
+                        {...register('username', {
                             required: 'El handle es obligatorio'
                         })}
                     />
 
-                    {errors.handle && <ErrorMessage>{errors.handle.message}</ErrorMessage>}
+                    {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
                 </div>
 
                 <div className="grid grid-cols-1 space-y-3">

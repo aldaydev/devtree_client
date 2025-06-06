@@ -13,7 +13,7 @@ export default function HandleData({ data } : HandleDataProps) {
     return (
         <div className="space-y-6 text-white">
             <p className="text-4xl text-center font-black">
-                {data.handle}
+                {data.username}
             </p>
 
             {data.image &&

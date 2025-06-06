@@ -2,28 +2,26 @@ import { useForm } from 'react-hook-form'
 import ErrorMessage from "./ErrorMessage";
 import slugify from 'react-slugify';
 import { useMutation } from '@tanstack/react-query';
-import { searchByHanlde } from '../api/DevTreeApi';
+import { searchByUsername } from '../api/DevTreeApi';
 import { Link } from 'react-router-dom';
 
 export default function SearchForm() {
 
     const { register, handleSubmit, watch, formState: { errors} } = useForm({
         defaultValues: {
-            handle: ''
+            username: ''
         }
     })
 
     const mutation = useMutation({
-        mutationFn: searchByHanlde
+        mutationFn: searchByUsername
     })
 
-    const handle = watch('handle');
+    const username = watch('username');
 
     const handleSearch = () => {
-        const slug = slugify(handle);
+        const slug = slugify(username);
         mutation.mutate(slug);
-        console.log(mutation.error?.message);
-        console.log(mutation.data);
     }
 
     return (
@@ -32,22 +30,22 @@ export default function SearchForm() {
             className="space-y-5 w-[100%] mx-auto">
             <div className="relative flex items-center  bg-white  px-2">
                 <label
-                    htmlFor="handle"
+                    htmlFor="username"
                     className='font-bold'
                 >devtree.com/</label>
                 <input
                     type="text"
-                    id="handle"
+                    id="username"
                     className="border-none bg-transparent p-2 focus:ring-0 flex-1"
                     placeholder="elonmusk, zuck, jeffbezos"
-                    {...register("handle", {
+                    {...register("username", {
                         required: "Un Nombre de Usuario es obligatorio",
                     })}
                 />
 
             </div>
-            {errors.handle && (
-                <ErrorMessage>{errors.handle.message}</ErrorMessage>
+            {errors.username && (
+                <ErrorMessage>{errors.username.message}</ErrorMessage>
             )}
 
             <div className="mt-10">
@@ -55,7 +53,7 @@ export default function SearchForm() {
                 {mutation.error && <p className='text-red-600 font-black text-center'>{mutation.error.message}</p>}
                 {mutation.data && 
                     <p className='text-green-500 font-black text-center'>
-                        {mutation.data} <Link className='text-cyan-500' to={'/auth/register'} state={{handle: slugify(handle)}}>IR A REGISTRO</Link>
+                        {mutation.data} <Link className='text-cyan-500' to={'/auth/register'} state={{username: slugify(username)}}>IR A REGISTRO</Link>
                     </p>}
             </div>
 

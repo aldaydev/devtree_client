@@ -7,7 +7,6 @@ import type { SocialNetwork, User } from '../types'
 import { useEffect, useState } from 'react'
 import DevTreeLink from './DevTreeLink'
 import { useQueryClient } from '@tanstack/react-query'
-import Header from './Header'
 
 type DevTreeProps = {
     data: User
@@ -64,10 +63,10 @@ export default function DevTree({data}: DevTreeProps) {
                     <div className="flex justify-end">
                         <Link
                             className="font-bold text-right text-slate-800 text-2xl"
-                            to={`/${data.handle}`}
+                            to={`/${data.username}`}
                             target="_blank"
                             rel="noreferrer noopener"
-                        >Visitar Mi Perfil: /{data.handle}</Link>
+                        >Visitar Mi Perfil: /{data.username}</Link>
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-10 mt-10">
@@ -76,7 +75,7 @@ export default function DevTree({data}: DevTreeProps) {
                         </div>
                         <div className="w-full md:w-96 bg-slate-800 px-5 py-10 space-y-5">
                             
-                            <p className='text-4xl text-center text-white'>{data.handle}</p>
+                            <p className='text-4xl text-center text-white'>{data.username}</p>
 
                             {data.image && 
                             <img src={data.image} alt='Imagen Perfil' className='mx-auto max-w-[250px]'/>}

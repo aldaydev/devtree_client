@@ -11,7 +11,7 @@ export default function ProfileView() {
     const data : User = queryClient.getQueryData(['user'])!
 
     const { register, handleSubmit, formState: {errors} } = useForm<ProfileForm>({defaultValues: {
-        handle: data.handle,
+        username: data.username,
         description: data.description
     }});
 
@@ -53,7 +53,7 @@ export default function ProfileView() {
     const handleUserProfileForm = (formData : ProfileForm) => {
         const user: User = queryClient.getQueryData(['user'])!;
         user.description = formData.description;
-        user.handle = formData.handle;
+        user.username = formData.username;
         updateProfileMutation.mutate(user);
     };
 
@@ -65,18 +65,18 @@ export default function ProfileView() {
             <legend className="text-2xl text-slate-800 text-center">Editar Información</legend>
             <div className="grid grid-cols-1 gap-2">
                 <label
-                    htmlFor="handle"
-                >Handle:</label>
+                    htmlFor="username"
+                >Username:</label>
                 <input
                     type="text"
                     className="border-none bg-slate-100 rounded-lg p-2"
-                    placeholder="handle o Nombre de Usuario"
-                    {...register('handle', {
+                    placeholder="Nombre de Usuario único"
+                    {...register('username', {
                         required: 'El nombre de usuario es obligatorio'
                     })}
                 />
 
-                {errors.handle && <ErrorMessage>{errors.handle.message}</ErrorMessage>}
+                {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
             </div>
 
             <div className="grid grid-cols-1 gap-2">

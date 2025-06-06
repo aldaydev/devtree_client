@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Navigate } from "react-router-dom";
 import { getUser } from "../api/DevTreeApi";
 import DevTree from "../components/DevTree";
+import Spinner from '../components/Spinner';
 
 export default function AppLayout() {
 
@@ -12,7 +13,7 @@ export default function AppLayout() {
         refetchOnWindowFocus: false
     });
 
-    if(isLoading) return 'Cargando...';
+    if(isLoading) return <Spinner/>;
     if(isError) {
         return <Navigate to={'/auth/login'}/>
     }

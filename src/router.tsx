@@ -27,7 +27,7 @@ export default function Router() {
 
                 <Route path='/' element={<HomeView/>}/>
 
-                <Route path='/:handle' element={<AuthLayout/>}>
+                <Route path='/:username' element={<AuthLayout/>}>
                     <Route index={true} element={ <HandleView />}/>
                 </Route>
 

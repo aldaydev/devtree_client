@@ -37,9 +37,9 @@ export async function uploadImage(file: File)  {
     }
 }
 
-export async function getUserByHandle(handle : string) {
+export async function getUserByUsername(username : string) {
     try {
-        const { data } = await api<PublicUserData>(`/${handle}`);
+        const { data } = await api<PublicUserData>(`/${username}`);
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {
@@ -48,9 +48,9 @@ export async function getUserByHandle(handle : string) {
     }
 }
 
-export async function searchByHanlde(handle : string) {
+export async function searchByUsername(username : string) {
     try {
-        const { data } = await api.post<string>('/search', {handle})
+        const { data } = await api.post<string>('/search', {username})
         return data
     } catch (error) {
         if (isAxiosError(error) && error.response) {

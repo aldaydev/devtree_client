@@ -1,5 +1,5 @@
 export type User = {
-    handle: string,
+    username: string,
     name: string,
     email: string,
     _id: string,
@@ -8,9 +8,9 @@ export type User = {
     links: string
 }
 
-export type PublicUserData = Pick<User, 'handle' | 'description' | 'name' | 'image' | 'links'> 
+export type PublicUserData = Pick<User, 'username' | 'description' | 'name' | 'image' | 'links'> 
 
-export type RegisterForm = Pick<User, 'handle' | 'email' | 'name'> & {
+export type RegisterForm = Pick<User, 'username' | 'email' | 'name'> & {
     password: string
     password_confirmation: string
 }
@@ -19,7 +19,7 @@ export type LoginForm = Pick<User, 'email'> & {
     password: string
 }
 
-export type ProfileForm = Pick<User, 'handle' | 'description'>
+export type ProfileForm = Pick<User, 'username' | 'description'>
 
 export type SocialNetwork = {
     id: number,
