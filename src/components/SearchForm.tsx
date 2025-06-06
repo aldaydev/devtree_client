@@ -29,10 +29,11 @@ export default function SearchForm() {
     return (
         <form
             onSubmit={handleSubmit(handleSearch)}
-            className="space-y-5">
+            className="space-y-5 w-[100%] mx-auto">
             <div className="relative flex items-center  bg-white  px-2">
                 <label
                     htmlFor="handle"
+                    className='font-bold'
                 >devtree.com/</label>
                 <input
                     type="text"
