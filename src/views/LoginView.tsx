@@ -40,7 +40,7 @@ export default function LoginView() {
     }
 
     return (
-        <>
+        <div className="py-10 px-5 max-w-lg mx-auto">
             <h1 className="text-4xl text-white font-bold">Iniciar Sesión</h1>
 
             <form
@@ -98,6 +98,6 @@ export default function LoginView() {
                     ¿No tienes cuenta? <span className="text-orange">Crea una aquí</span>
                 </Link>
             </nav>
-        </>
+        </div>
     )
 }

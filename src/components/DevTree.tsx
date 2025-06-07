@@ -78,7 +78,7 @@ export default function DevTree({data}: DevTreeProps) {
                         </div>
 
                         
-                        <div className="basis-[42%] w-full lg:w-96 min-w-[300px] bg-dark px-5 py-10 space-y-4 relative">
+                        <div className="basis-[42%] w-full lg:w-96 min-w-[275px] bg-dark px-5 py-10 space-y-4 relative">
 
                             <div className='w-full absolute top-1 left-0'>
                                 <p className='text-green text-lg text-center font-bold'>- PREVIEW -</p>
@@ -99,7 +99,7 @@ export default function DevTree({data}: DevTreeProps) {
                                 data.description ?
                                     <p className='text-center text-lg text-white'>{data.description}</p>
                                     :
-                                    <p className='text-center text-lg text-white text-pretty'>*Aquí irá tu descripción si la agregas. Recuerda que hay un límite de 120 caracteres</p>
+                                    <p className='text-center text-lg text-white text-pretty'>*Aquí irá tu descripción si la agregas. Recuerda que hay un límite de 150 caracteres</p>
                             }
                             
                             {
@@ -127,7 +127,7 @@ export default function DevTree({data}: DevTreeProps) {
                             </DndContext>
                             :
                             <div className='bg-white rounded-lg p-4'>
-                                <p className='text-dark font-bold text-center'>*Tus enlaces irán aquí cuando los agregues</p>
+                                <p className='text-dark font-bold text-center'>*Tus enlaces aparecerán aquí</p>
                             </div>
                             
                             }

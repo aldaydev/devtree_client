@@ -69,7 +69,7 @@ export default function AccountView() {
     return (
         <div className='relative' id='accountContainer'>
             <form
-                className="bg-white p-10 rounded-lg space-y-5"
+                className="bg-white p-5 rounded-lg space-y-5"
                 onSubmit={handleSubmit(handleUserAccountForm)}
             >
                 <legend className="text-2xl text-slate-800 text-center">Editar tu cuenta</legend>
@@ -134,7 +134,7 @@ export default function AccountView() {
             </form>
             <div className='w-full flex justify-center'>
                 <button
-                    className="bg-red-600 p-2 hover:bg-red-500 text-lg uppercase text-dark rounded-lg font-bold cursor-pointer w-full mx-10 my-5"
+                    className="bg-red-600 p-2 hover:bg-red-500 text-lg uppercase text-dark rounded-lg font-bold cursor-pointer w-full my-5"
                     onClick={handleDeleteAccount}
                 >
                     Eliminar Cuenta

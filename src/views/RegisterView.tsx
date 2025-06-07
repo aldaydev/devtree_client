@@ -57,7 +57,7 @@ export default function RegisterView() {
     }
 
     return (
-        <>
+        <div className="pt-9 pb-9 px-5 max-w-lg mx-auto">
             <h1 className="text-4xl text-white font-bold">Crear Cuenta</h1>
 
             <form 
@@ -165,7 +165,7 @@ export default function RegisterView() {
                     ¿Ya tienes cuenta? <span className="text-green">Inicia sesión</span> 
                 </Link>
             </nav>
-        </>
+        </div>
         
     )
 }

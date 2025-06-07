@@ -5,7 +5,7 @@ import AuthLayout from './layouts/AuthLayout';
 import AppLayout from './layouts/AppLayout';
 import LinkTreeView from './views/LinkTreeView';
 import ProfileView from './views/ProfileView';
-import HandleView from './views/PublicUserView';
+import PublicUserView from './views/PublicUserView';
 import NotFoundView from './views/NotFoundView';
 import HomeView from './views/HomeView';
 import AuthProvider from './context/AuthProvider';
@@ -32,7 +32,7 @@ export default function Router() {
                 <Route path='/' element={<HomeView/>}/>
 
                 <Route path='/:username' element={<AuthLayout/>}>
-                    <Route index={true} element={ <HandleView />}/>
+                    <Route index={true} element={ <PublicUserView />}/>
                 </Route>
 
                 <Route path='/404' element={<AuthLayout/>}>
