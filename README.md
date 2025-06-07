@@ -2,6 +2,14 @@
 
 DevTree App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+## Remake 2 (frontend)
+Editar y reestructurar todo lo que tiene que ver con la vista privada
+
+* Meter el link para ver el perfil público en el nav de la vista privada
+* Actualizados los estilos del nav de "/admin"
+* Creada la vista para actualizar nombre y contraseña
+* En el preview, si no tienes imagen y/o descripción, se muestra un ejemplo
+
 ## Remake 1 (frontend)
 
 Editar y reestructurar todo lo que tiene que ver con la vista pública y acceso

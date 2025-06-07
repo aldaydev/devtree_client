@@ -23,8 +23,15 @@ module.exports = {
         "dark": "#1a1818",
         "green": "#60e995",
         "green-light": "#8bf5b4",
+        "green-dark": "#4cc079",
         "orange": "#e9ae50",
         "orange-light": "#f0c47e"
+      },
+      borderColor: {
+        "green-dark": "#4cc079"
+      },
+      ringColor: {
+        "green-dark": "#4cc079"
       }
     },
   },

@@ -17,7 +17,7 @@ export default function HomeView() {
                         <p className="text-slate-800 text-2xl text-center lg:text-left font-bold">¿Cómo funciona?</p>
 
                         <p className="text-slate-800 text-xl text-center lg:text-left">
-                            1. Comprueba que tu nickname está disponible
+                            1. Comprueba que tu nombre de usuario está disponible
                         </p>
                         <p className="text-slate-800 text-xl text-center lg:text-left">
                             2. Crea tu cuenta en menos de 1 minuto

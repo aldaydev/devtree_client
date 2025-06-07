@@ -56,30 +56,46 @@ export default function DevTree({data}: DevTreeProps) {
         <>
             <div className="bg-gray-100  min-h-screen py-10">
                 <main className="mx-auto max-w-5xl p-10 md:p-5">
+                    <nav className='flex items-baseline justify-between'>
+                        <NavigationTabs />
 
-                    <NavigationTabs />
-
-                    <div className="flex justify-end">
-                        <Link
-                            className="font-bold text-right text-slate-800 text-2xl"
-                            to={`/${data.username}`}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                        >Visitar Mi Perfil: /{data.username}</Link>
-                    </div>
+                        <div className="flex justify-end">
+                            <Link
+                                className="font-bold text-right text-dark text-xl hover:text-slate-500 transition-all"
+                                to={`/${data.username}`}
+                                target="_blank"
+                                rel="noreferrer noopener"
+                            >
+                                Ver perfil
+                            </Link>
+                        </div>
+                    </nav>
+                    
 
                     <div className="flex flex-col md:flex-row gap-10 mt-10">
                         <div className="flex-1 ">
                             <Outlet />
                         </div>
-                        <div className="w-full md:w-96 bg-slate-800 px-5 py-10 space-y-5">
+                        <div className="w-full md:w-96 bg-dark px-5 py-10 space-y-5">
                             
-                            <p className='text-4xl text-center text-white'>{data.username}</p>
+                            <p className='text-4xl text-center font-bold text-white'>{data.username}</p>
 
-                            {data.image && 
-                            <img src={data.image} alt='Imagen Perfil' className='mx-auto max-w-[250px]'/>}
+                            {data.image ?
+                            <img src={data.image} alt='Imagen Perfil' className='mx-auto max-w-[250px]'/>
+                            :
+                            <div className='bg-green-light min-h-[200px] flex items-center justify-center'>
+                                <p className='font-bold text-pretty text-center px-6'>Aquí irá tu imagen cuando la agreges. Recuerda que debe ser en formato 1:1 y con un límite de 250px</p>
+                            </div>
+                        
+                            }
 
-                            <p className='text-center text-lg text-white'>{data.description}</p>
+                            {
+                                data.description ?
+                                    <p className='text-center text-lg text-white'>{data.description}</p>
+                                    :
+                                    <p className='text-center text-lg text-white text-pretty'>Aquí irá tu descripción si la agregas. Recuerda que hay un límite de 120 caracteres</p>
+                            }
+                            
 
                             <DndContext
                                 collisionDetection={closestCenter}

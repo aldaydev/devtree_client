@@ -10,6 +10,7 @@ import NotFoundView from './views/NotFoundView';
 import HomeView from './views/HomeView';
 import AuthProvider from './context/AuthProvider';
 import Header from './components/Header';
+import AccountView from './views/AccountView';
 
 export default function Router() {
     return(
@@ -25,6 +26,7 @@ export default function Router() {
                 <Route path='/admin'  element={<AppLayout/>}>
                     <Route index={true} element={<LinkTreeView/>} />
                     <Route path='profile' element={<ProfileView/>} />
+                    <Route path='account' element={<AccountView/>} />
                 </Route>
 
                 <Route path='/' element={<HomeView/>}/>

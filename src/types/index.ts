@@ -21,6 +21,11 @@ export type LoginForm = Pick<User, 'email'> & {
 
 export type ProfileForm = Pick<User, 'username' | 'description'>
 
+export type AccountForm = Pick<User, 'name' > & {
+    password: string
+    password_confirmation: string
+}
+
 export type SocialNetwork = {
     id: number,
     name: string,

@@ -1,9 +1,10 @@
-import { BookmarkSquareIcon, UserIcon } from '@heroicons/react/20/solid'
+import { BookmarkSquareIcon, UserIcon, Cog6ToothIcon } from '@heroicons/react/20/solid'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const tabs = [
     { name: 'Links', href: '/admin', icon: BookmarkSquareIcon },
     { name: 'Mi Perfil', href: '/admin/profile', icon: UserIcon },
+    { name: 'Mi Cuenta', href: '/admin/account', icon: Cog6ToothIcon },
 ]
 
 function classNames(...classes: string[]) {
@@ -19,7 +20,8 @@ export default function NavigationTabs() {
     }
 
     return (
-        <div className='mb-5'>
+        <>
+
             <div className="sm:hidden">
                 <label htmlFor="tabs" className="sr-only">
                     Select a tab
@@ -27,7 +29,7 @@ export default function NavigationTabs() {
                 <select
                     id="tabs"
                     name="tabs"
-                    className="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                    className="block w-full rounded-md border-gray-300 focus:border-green-dark focus:ring-green-dark"
                     onChange={ handleChange }
                 >
                     {tabs.map((tab) => (
@@ -41,21 +43,21 @@ export default function NavigationTabs() {
 
             <div className="hidden sm:block">
                 <div className="border-b border-gray-200">
-                    <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                    <div className="-mb-px flex space-x-8" aria-label="Tabs">
                         {tabs.map((tab) => (
                             <Link
                                 key={tab.name}
                                 to={tab.href}
                                 className={classNames(
                                     location.pathname === tab.href
-                                        ? 'border-blue-500 text-blue-500'
+                                        ? 'border-green-dark text-green-dark'
                                         : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                                     'group inline-flex items-center border-b-2 py-4 px-1 text-xl'
                                 )}
                             >
                                 <tab.icon
                                     className={classNames(
-                                        location.pathname === tab.href ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500',
+                                        location.pathname === tab.href ? 'text-green-dark' : 'text-gray-400 group-hover:text-gray-500',
                                         '-ml-0.5 mr-2 h-5 w-5'
                                     )}
                                     aria-hidden="true"
@@ -63,9 +65,9 @@ export default function NavigationTabs() {
                                 <span>{tab.name}</span>
                             </Link>
                         ))}
-                    </nav>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
