@@ -11,6 +11,7 @@ Editar y reestructurar todo lo que tiene que ver con la vista privada
 * En el preview, si no tienes imagen y/o descripción, se muestra un ejemplo
 * Validación de la imagen (max 250x250px y 500kb)
 * Creación de funcionalidad para eliminar la cuenta
+* Cambio de los links (adaptados para músicos)
 
 ## Remake 1 (frontend)
 

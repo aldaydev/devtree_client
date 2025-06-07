@@ -61,6 +61,17 @@ export async function updateAccount(formData : AccountForm) {
     }
 }
 
+export async function deleteAccount() {
+    try {
+        const { data } = await api.delete<string>(`/account`);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.error);
+        }
+    }
+}
+
 export async function uploadImage(file: File)  {
     const formData = new FormData();
     formData.append('file', file);

@@ -14,7 +14,6 @@ type DevTreeProps = {
 
 export default function DevTree({data}: DevTreeProps) {
 
-
     const [enabledLinks, setEnabledLinks] = useState<SocialNetwork[]>(JSON.parse(data.links).filter((link: SocialNetwork) => link.enabled));
 
     useEffect(() => {
@@ -91,8 +90,8 @@ export default function DevTree({data}: DevTreeProps) {
                             {data.image ?
                             <img src={data.image} alt='Imagen Perfil' className='mx-auto max-w-[250px]'/>
                             :
-                            <div className='bg-green-light min-h-[200px] flex items-center justify-center'>
-                                <p className='font-bold text-pretty text-center px-6'>Aquí irá tu imagen cuando la agreges. Recuerda que debe ser en formato 1:1 y con un límite de 250px</p>
+                            <div className='bg-green-light min-h-[200px] flex items-center justify-center mx-4'>
+                                <p className='font-bold text-pretty text-center px-6'>*Aquí irá tu imagen cuando la agreges. Recuerda que debe ser en formato 1:1 y con un límite de 250x250px y 500kb</p>
                             </div>
                             }
 
@@ -100,11 +99,12 @@ export default function DevTree({data}: DevTreeProps) {
                                 data.description ?
                                     <p className='text-center text-lg text-white'>{data.description}</p>
                                     :
-                                    <p className='text-center text-lg text-white text-pretty'>Aquí irá tu descripción si la agregas. Recuerda que hay un límite de 120 caracteres</p>
+                                    <p className='text-center text-lg text-white text-pretty'>*Aquí irá tu descripción si la agregas. Recuerda que hay un límite de 120 caracteres</p>
                             }
                             
-
-                            <DndContext
+                            {
+                                enabledLinks.length > 0 ?
+                                <DndContext
                                 collisionDetection={closestCenter}
                                 onDragEnd={handleDragEnd}
                             >
@@ -125,6 +125,13 @@ export default function DevTree({data}: DevTreeProps) {
                                     
                                 </div>
                             </DndContext>
+                            :
+                            <div className='bg-white rounded-lg p-4'>
+                                <p className='text-dark font-bold text-center'>*Tus enlaces irán aquí cuando los agregues</p>
+                            </div>
+                            
+                            }
+                            
                             
 
                         </div>
