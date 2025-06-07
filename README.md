@@ -9,6 +9,8 @@ Editar y reestructurar todo lo que tiene que ver con la vista privada
 * Actualizados los estilos del nav de "/admin"
 * Creada la vista para actualizar nombre y contraseña
 * En el preview, si no tienes imagen y/o descripción, se muestra un ejemplo
+* Validación de la imagen (max 250x250px y 500kb)
+* Creación de funcionalidad para eliminar la cuenta
 
 ## Remake 1 (frontend)
 

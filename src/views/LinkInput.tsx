@@ -1,14 +1,14 @@
 import { Switch } from "@headlessui/react"
-import type { devTreeLink } from "../types"
+import type { treeLink } from "../types"
 import { classNames } from "../utils"
 
 type DevTreeInputProps = {
-    item: devTreeLink
+    item: treeLink
     handleUrlChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     handleEnableLink: (socialName: string) => void
 }
 
-export default function DevTreeInput({ item, handleUrlChange, handleEnableLink }: DevTreeInputProps) {
+export default function LinkInput({ item, handleUrlChange, handleEnableLink }: DevTreeInputProps) {
     return (
         <div className="bg-white shadow-sm p-5 flex items-center gap-3">
             <div

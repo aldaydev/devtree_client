@@ -54,8 +54,9 @@ export default function DevTree({data}: DevTreeProps) {
 
     return (
         <>
-            <div className="bg-gray-100  min-h-screen py-10">
-                <main className="mx-auto max-w-5xl p-10 md:p-5">
+            <div className="bg-gray-100 min-h-[calc(100dvh-85px)] py-10 res-padding">
+                <main className="mx-auto">
+
                     <nav className='flex items-baseline justify-between'>
                         <NavigationTabs />
 
@@ -72,11 +73,18 @@ export default function DevTree({data}: DevTreeProps) {
                     </nav>
                     
 
-                    <div className="flex flex-col md:flex-row gap-10 mt-10">
+                    <div className="flex flex-col lg:flex-row gap-8 mt-7">
                         <div className="flex-1 ">
                             <Outlet />
                         </div>
-                        <div className="w-full md:w-96 bg-dark px-5 py-10 space-y-5">
+
+                        
+                        <div className="basis-[42%] w-full lg:w-96 min-w-[300px] bg-dark px-5 py-10 space-y-4 relative">
+
+                            <div className='w-full absolute top-1 left-0'>
+                                <p className='text-green text-lg text-center font-bold'>- PREVIEW -</p>
+                            </div>
+                            
                             
                             <p className='text-4xl text-center font-bold text-white'>{data.username}</p>
 
@@ -86,7 +94,6 @@ export default function DevTree({data}: DevTreeProps) {
                             <div className='bg-green-light min-h-[200px] flex items-center justify-center'>
                                 <p className='font-bold text-pretty text-center px-6'>Aquí irá tu imagen cuando la agreges. Recuerda que debe ser en formato 1:1 y con un límite de 250px</p>
                             </div>
-                        
                             }
 
                             {

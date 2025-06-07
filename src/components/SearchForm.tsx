@@ -32,7 +32,7 @@ export default function SearchForm() {
                 <label
                     htmlFor="username"
                     className='font-bold'
-                >devtree.com/</label>
+                >mlink.es/</label>
                 <input
                     type="text"
                     id="username"

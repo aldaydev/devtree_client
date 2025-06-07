@@ -3,10 +3,12 @@ import {useForm} from 'react-hook-form';
 import ErrorMessage from "../components/ErrorMessage";
 import type { LoginForm } from "../types";
 import { toast } from "sonner";
-import api from "../config/axios";
-import { isAxiosError } from "axios";
+// import api from "../config/axios";
+// import { isAxiosError } from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { login } from "../api/DevTreeApi";
 
 export default function LoginView() {
 
@@ -21,17 +23,20 @@ export default function LoginView() {
 
     const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: initialValues});
 
-    const handleLogin = async (formData: LoginForm) => {
-        try {
-            const {data} = await api.post(`/auth/login`, formData);
-            localStorage.setItem('AUTH_TOKEN', data);
-            navigate('/admin');
+    const loginMutation = useMutation({
+        mutationFn: login,
+        onError: (error) => {
+            toast.error(error.message);
+        },
+        onSuccess: (data) => {
+            localStorage.setItem('AUTH_TOKEN', data!);
             setIsLoggedIn(true);
-        } catch (error) {
-            if(isAxiosError(error) && error.response){
-                toast.error(error.response.data)
-            }
+            navigate('/admin');
         }
+    })
+
+    const handleLogin = async (formData: LoginForm) => {
+        loginMutation.mutate(formData)
     }
 
     return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { social } from "../data/social";
-import DevTreeInput from "./DevTreeInput";
+import LinkInput from "./LinkInput";
 import { isValidUrl } from "../utils";
 import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -9,7 +9,7 @@ import type { SocialNetwork, User } from "../types";
 
 export default function LinkTreeView() {
 
-    const [devTreeLinks, setDevTreeLinks] = useState(social);
+    const [treeLinks, setTreeLinks] = useState(social);
 
     const queryClient = useQueryClient();
     const user: User = queryClient.getQueryData(['user'])!;
@@ -25,20 +25,20 @@ export default function LinkTreeView() {
     })
 
     useEffect(() => {
-        const updatedData = devTreeLinks.map((item) => {
+        const updatedData = treeLinks.map((item) => {
             const userLink = JSON.parse(user.links).find((link: SocialNetwork) => link.name === item.name)
             if (userLink) {
                 return { ...item, url: userLink.url, enabled: userLink.enabled }
             }
             return item
         })
-        setDevTreeLinks(updatedData)
+        setTreeLinks(updatedData)
     }, [user])
 
 
     const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const updatedLinks = devTreeLinks.map(item => item.name === e.target.name ? { ...item, url: e.target.value } : item)
-        setDevTreeLinks(updatedLinks);
+        const updatedLinks = treeLinks.map(item => item.name === e.target.name ? { ...item, url: e.target.value } : item)
+        setTreeLinks(updatedLinks);
     }
 
     //Creamos una copia de la información de la base de datos
@@ -49,7 +49,7 @@ export default function LinkTreeView() {
     const handleEnableLink = (socialName: string) => {
 
         //updateEnable dará como resultado el objeto de la red social modificada
-        const updatedEnabled = devTreeLinks.map(item => {
+        const updatedEnabled = treeLinks.map(item => {
             //Si el nombre de la red social en el botón y en el objeto inicial son iguales
             if (item.name === socialName) {
                 // Si, además, es una URL correcta
@@ -65,7 +65,7 @@ export default function LinkTreeView() {
         })
 
         // Almacenamos en el estado el array completo con la red social actualizada
-        setDevTreeLinks(updatedEnabled);
+        setTreeLinks(updatedEnabled);
 
         // Creamos un array vacío que incluirá una copia de las redes sociales "enabled"
         let updatedItems: SocialNetwork[] = [];
@@ -127,8 +127,8 @@ export default function LinkTreeView() {
 
     return (
         <div className="space-y-5">
-            {devTreeLinks.map(item => (
-                <DevTreeInput
+            {treeLinks.map(item => (
+                <LinkInput
                     key={item.name}
                     item={item}
                     handleUrlChange={handleUrlChange}

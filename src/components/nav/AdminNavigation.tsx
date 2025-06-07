@@ -11,7 +11,7 @@ export default function AdminNavigation() {
     const logout = () => {
         localStorage.removeItem('AUTH_TOKEN');
         queryClient.invalidateQueries({ queryKey: ['user'] });
-        setIsLoggedIn(true);
+        setIsLoggedIn(false);
         location.reload();
     }
 

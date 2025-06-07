@@ -1,10 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import {isAxiosError} from "axios";
 import { toast } from "sonner";
 import type { RegisterForm } from "../types";
 import ErrorMessage from "../components/ErrorMessage";
-import api from "../config/axios";
+import { useMutation } from "@tanstack/react-query";
+import { registerUser } from "../api/DevTreeApi";
 
 export default function RegisterView() {
 
@@ -26,21 +26,34 @@ export default function RegisterView() {
     // Observaremos y guardaremos la constraseña 
     const password = watch('password');
 
+    const registerMutation = useMutation({
+        mutationFn: registerUser,
+        onError: (error) => {
+            toast.error(error.message)
+        }, 
+        onSuccess: (data) => {
+            console.log(data);
+            toast.success(data);
+            reset();
+            navigate('/auth/login');
+        }   
+    })
+
     // Función al hacer click en registrar
     // Esta función se pasa como callback a handleSubmit (React Hook Form)
     // Recibirá automáticamente los parámetros incluidos en "register"
     const handleRegister = async (formData: RegisterForm) => {
-        try {
-            //Llamada al endpoint de registro via "axios" (api)
-            const {data} = await api.post(`/auth/register`, formData);
-            toast.success(data);
-            reset();
-            navigate('/auth/login')
-        } catch (error) {
-            if(isAxiosError(error) && error.response){
-                toast.error(error.response.data)
-            }
-        }
+        registerMutation.mutate(formData)
+        // try {
+        //     const {data} = await api.post(`/auth/register`, formData);
+        //     toast.success(data);
+        //     reset();
+        //     navigate('/auth/login')
+        // } catch (error) {
+        //     if(isAxiosError(error) && error.response){
+        //         toast.error(error.response.data)
+        //     }
+        // }
     }
 
     return (
@@ -95,7 +108,7 @@ export default function RegisterView() {
                         placeholder="Nombre de usuario único: sin espacios"
                         className="bg-slate-100 border-none p-3 rounded-lg placeholder-slate-400"
                         {...register('username', {
-                            required: 'El handle es obligatorio'
+                            required: 'El nombre de usuario es obligatorio'
                         })}
                     />
 

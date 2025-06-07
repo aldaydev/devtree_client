@@ -14,6 +14,7 @@ function classNames(...classes: string[]) {
 export default function NavigationTabs() {
     const location = useLocation();
     const navigate = useNavigate();
+    const currentPath = location.pathname;
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         navigate(e.target.value);
@@ -29,6 +30,7 @@ export default function NavigationTabs() {
                 <select
                     id="tabs"
                     name="tabs"
+                    value={currentPath}
                     className="block w-full rounded-md border-gray-300 focus:border-green-dark focus:ring-green-dark"
                     onChange={ handleChange }
                 >

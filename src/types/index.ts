@@ -33,4 +33,4 @@ export type SocialNetwork = {
     enabled: boolean
 }
 
-export type devTreeLink = Pick<SocialNetwork, 'name' | 'url' | 'enabled'>
+export type treeLink = Pick<SocialNetwork, 'name' | 'url' | 'enabled'>

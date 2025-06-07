@@ -5,7 +5,7 @@ import AuthLayout from './layouts/AuthLayout';
 import AppLayout from './layouts/AppLayout';
 import LinkTreeView from './views/LinkTreeView';
 import ProfileView from './views/ProfileView';
-import HandleView from './views/HandleView';
+import HandleView from './views/PublicUserView';
 import NotFoundView from './views/NotFoundView';
 import HomeView from './views/HomeView';
 import AuthProvider from './context/AuthProvider';

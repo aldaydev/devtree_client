@@ -4,7 +4,7 @@ import { getUserByUsername } from "../api/DevTreeApi";
 import HandleData from "../components/HandleData";
 import Spinner from "../components/Spinner";
 
-export default function HandleView() {
+export default function PublicUserView() {
 
   const params = useParams();
   const username = params.username!;

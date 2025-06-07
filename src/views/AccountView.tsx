@@ -97,7 +97,7 @@ export default function AccountView() {
                     })}
                 />
 
-                {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                {errors.password_confirmation && <ErrorMessage>{errors.password_confirmation.message}</ErrorMessage>}
             </div>
 
             <input

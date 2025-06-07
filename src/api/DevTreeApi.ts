@@ -1,6 +1,32 @@
 import { isAxiosError } from "axios";
 import api from "../config/axios";
-import type { AccountForm, ProfileForm, PublicUserData, User } from "../types";
+import type { AccountForm, LoginForm, ProfileForm, PublicUserData, RegisterForm, User } from "../types";
+
+
+export async function registerUser(formData: RegisterForm){
+    try {
+        console.log(formData);
+        const {data} = await api.post<string>(`/auth/register`, formData);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data);
+        }
+    }
+}
+
+export async function login(formData : LoginForm) {
+    try {
+        const {data} = await api.post<string>(`/auth/login`, formData);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            console.log('ERROR', error);
+            throw new Error(error.response.data);
+        }
+    }
+}
+
 
 export async function getUser() {
     try {
