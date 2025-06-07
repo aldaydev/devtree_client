@@ -29,7 +29,7 @@ export default function DevTreeLink({link}: DevTreeLinkProps) {
                 className="w-12 h-12 bg-cover"
                 style={{ backgroundImage: `url(/social/icon_${link.name}.svg)` }}
             ></div>
-            <p className="capitalize">VISITA MI <span className="font-bold">{link.name.toUpperCase()}</span></p>
+            <p className="capitalize"><span className="font-bold">{link.name.toUpperCase()}</span></p>
         </li>
         
     )

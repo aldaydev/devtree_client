@@ -1,7 +1,7 @@
 import { Navigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query";
 import { getUserByUsername } from "../api/DevTreeApi";
-import HandleData from "../components/HandleData";
+import PublicUserData from "../components/PublicUserData";
 import Spinner from "../components/Spinner";
 
 export default function PublicUserView() {
@@ -19,5 +19,5 @@ export default function PublicUserView() {
 
   if(error) return <Navigate to={'/404'}/>;
 
-  if(data) return <HandleData data={data}/>
+  if(data) return <PublicUserData data={data}/>
 }

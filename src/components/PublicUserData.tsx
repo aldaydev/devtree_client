@@ -4,25 +4,28 @@ type HandleDataProps = {
     data: PublicUserData
 }
 
-export default function HandleData({ data } : HandleDataProps) {
+export default function PublicUserData({ data } : HandleDataProps) {
 
     const links : SocialNetwork[] = JSON.parse(data.links).filter((link : SocialNetwork) => link.enabled);
 
-    console.log(links);
+    const appleMusic : string = "APPLE MUSIC";
 
     return (
-        <div className="space-y-6 text-white">
-            <p className="text-4xl text-center font-black">
-                {data.username}
-            </p>
+        <main className="space-y-6 text-white">
+            <header className="space-y-6 text-white">
+                <p className="text-4xl text-center font-black">
+                    {data.username}
+                </p>
 
-            {data.image &&
-                <img src={data.image} alt={`Foto de ${data.name}`} className="max-w-[250px] mx-auto"/>
-            }
+                {data.image &&
+                    <img src={data.image} alt={`Foto de ${data.name}`} className="max-w-[250px] mx-auto"/>
+                }
 
-            <p className="text-lg text-center font-bold">
-                {data.description}
-            </p>
+                <p className="text-lg text-center font-bold text-balance">
+                    {data.description}
+                </p>
+            </header>
+            
 
             <div className="mt-20 flex flex-col gap-6">
                 {
@@ -40,7 +43,15 @@ export default function HandleData({ data } : HandleDataProps) {
                                 alt={`Icono de ${link.name}`}
                                 className="max-w-12"
                             />
-                            <p className="text-black font-bold text-lg">Visita mi: {link.name}</p>
+                            <p className="text-black font-bold text-lg">
+                                {
+                                link.name === 'applemusic'
+                                ?
+                                appleMusic
+                                :
+                                link.name.toUpperCase()
+                                }
+                            </p>
                         </a>
                     ))
                     : 
@@ -49,6 +60,6 @@ export default function HandleData({ data } : HandleDataProps) {
             </div>
 
             
-        </div>
+        </main>
     )
 }
