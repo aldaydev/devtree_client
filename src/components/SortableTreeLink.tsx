@@ -6,7 +6,7 @@ type DevTreeLinkProps = {
     link: SocialNetwork
 }
 
-export default function DevTreeLink({link}: DevTreeLinkProps) {
+export default function SortableTreeLink({link}: DevTreeLinkProps) {
 
     const { attributes, listeners, setNodeRef, transform, transition} = useSortable({
         id: link.id

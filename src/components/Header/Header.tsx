@@ -1,8 +1,8 @@
-import Logo from "./Logo";
+import Logo from "../Logo";
 import AdminNavigation from "./nav/AdminNavigation";
-import HomeNavigation from "./nav/HomeNavigation"
+import HomeNavigation from "./nav/HomeNavigation";
 import { useLocation } from "react-router-dom"
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 export default function Header() {

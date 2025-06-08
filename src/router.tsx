@@ -9,7 +9,7 @@ import PublicUserView from './views/PublicUserView';
 import NotFoundView from './views/NotFoundView';
 import HomeView from './views/HomeView';
 import AuthProvider from './context/AuthProvider';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import AccountView from './views/AccountView';
 
 export default function Router() {

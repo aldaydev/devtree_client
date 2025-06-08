@@ -1,18 +1,18 @@
 import { Toaster } from 'sonner'
 import { DndContext, type DragEndEvent, closestCenter } from '@dnd-kit/core'
 import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable'
-import NavigationTabs from './NavigationTabs'
+import NavigationTabs from '../components/NavigationTabs'
 import { Link, Outlet } from 'react-router-dom'
 import type { SocialNetwork, User } from '../types'
 import { useEffect, useState } from 'react'
-import DevTreeLink from './DevTreeLink'
+import SortableTreeLink from '../components/sortableTreeLink'
 import { useQueryClient } from '@tanstack/react-query'
 
 type DevTreeProps = {
     data: User
 }
 
-export default function DevTree({data}: DevTreeProps) {
+export default function PrivateLayout({data}: DevTreeProps) {
 
     const [enabledLinks, setEnabledLinks] = useState<SocialNetwork[]>(JSON.parse(data.links).filter((link: SocialNetwork) => link.enabled));
 
@@ -115,7 +115,7 @@ export default function DevTree({data}: DevTreeProps) {
                                     >
                                         {
                                             enabledLinks.map((link) => (
-                                                <DevTreeLink 
+                                                <SortableTreeLink 
                                                     key={link.name} 
                                                     link={link}
                                                 />

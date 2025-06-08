@@ -9,14 +9,16 @@ import { useState } from 'react';
 export default function ProfileView() {
 
     const queryClient = useQueryClient();
-    const data : User = queryClient.getQueryData(['user'])!
+    const data: User = queryClient.getQueryData(['user'])!
 
     const [imageError, setImageError] = useState('');
 
-    const { register, handleSubmit, formState: {errors} } = useForm<ProfileForm>({defaultValues: {
-        username: data.username,
-        description: data.description
-    }});
+    const { register, handleSubmit, formState: { errors } } = useForm<ProfileForm>({
+        defaultValues: {
+            username: data.username,
+            description: data.description
+        }
+    });
 
     const updateProfileMutation = useMutation({
         mutationFn: updateProfile,
@@ -26,9 +28,9 @@ export default function ProfileView() {
         onSuccess: (data) => {
             toast.success(data);
             //Este método hace que se invalide el query actual y se hace de nuevo
-            queryClient.invalidateQueries({queryKey: ['user']});
+            queryClient.invalidateQueries({ queryKey: ['user'] });
             queryClient.refetchQueries({ queryKey: ['user'] });
-            
+
         }
     });
 
@@ -42,22 +44,22 @@ export default function ProfileView() {
             // Optimistic result
             queryClient.setQueryData(['user'], (prevData: User) => {
                 return {
-                    ...prevData, 
+                    ...prevData,
                     image: image
                 }
             });
         }
     });
 
-    const handleChangeImage = (e : React.ChangeEvent<HTMLInputElement>) => {
-        
+    const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+
         const file = e.target.files?.[0];
 
-        if(!file){
+        if (!file) {
             return;
         }
 
-        if(file.size > 5000){
+        if (file.size > 5000) {
             setImageError("Tamaño de imágen máximo 500kb");
         }
 
@@ -68,7 +70,7 @@ export default function ProfileView() {
         reader.onload = (event) => {
 
             const image = new Image();
-            
+
             image.onload = () => {
                 const { width, height } = image;
 
@@ -92,17 +94,21 @@ export default function ProfileView() {
         reader.readAsDataURL(file);
     }
 
-    const handleUserProfileForm = (formData : ProfileForm) => {
+    const handleUserProfileForm = (formData: ProfileForm) => {
+        const cachedUser = queryClient.getQueryData<User>(['user']);
+        if (!cachedUser) return;
 
-        const user: User = queryClient.getQueryData(['user'])!;
-        user.description = formData.description;
-        user.username = formData.username;
-        updateProfileMutation.mutate(user);
+        const updatedUser = {
+            ...cachedUser,
+            description: formData.description,
+            username: formData.username
+        };
 
+        updateProfileMutation.mutate(updatedUser);
     };
 
     return (
-        <form 
+        <form
             className="bg-white p-5 rounded-lg space-y-5"
             onSubmit={handleSubmit(handleUserProfileForm)}
         >

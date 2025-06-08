@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Navigate } from "react-router-dom";
 import { getUser } from "../api/DevTreeApi";
-import DevTree from "../components/DevTree";
+import DevTree from "./PrivateLayout";
 import Spinner from '../components/Spinner';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
