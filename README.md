@@ -2,6 +2,10 @@
 
 MLink App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
+## Remake 3 (frontend)
+
+Realización de testing con CYPRESS
+
 ## Remake 2 (frontend)
 Editar y reestructurar todo lo que tiene que ver con la vista privada
 
