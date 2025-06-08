@@ -9,9 +9,6 @@ Cypress.Commands.add('loginByApi', () => {
             email: 'testing@user.es',
             password: '12345678'
         },
-    }).then((response) => {
-        const {token} = response.body;
-        window.localStorage.setItem('AUTH_TOKEN', token)
     })
 })
 
