@@ -9,6 +9,7 @@ export const social: treeLink[] = [
     { name: 'x', url: '', enabled: false },
     { name: 'facebook', url: '', enabled: false },
     { name: 'twitch', url: '', enabled: false },
+    { name: 'website', url: '', enabled: false },
 ]
 
 
