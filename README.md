@@ -6,6 +6,15 @@ MLink App: proyecto full stack con Node, Express, TypeSript, React y Tailwind
 
 Realización de testing con CYPRESS
 
+* Instalación de cypress
+  npm install --save-dev cypress
+* Inicializar cypress
+  Creamos script => "cypress:open": "cypress open"
+  Con este script hacemos que cypress "escuche" y podremos ejecutar nuestros tests
+  (Solucionar error cypress.config.ts) => cypress.config.mjs
+
+* Testing de login /cypress/e2e/login.cy.ts
+
 ## Remake 2 (frontend)
 Editar y reestructurar todo lo que tiene que ver con la vista privada
 

@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Cypress folders to ignore
+cypress/downloads/
+cypress/videos/
+cypress/screenshots/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
