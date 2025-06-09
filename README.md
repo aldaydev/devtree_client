@@ -15,6 +15,9 @@ Realización de testing con CYPRESS
   Instalar los types de cypress para TS => npm install --save-dev @cypress/webpack-dev-server
 
 * Testing de login /cypress/e2e/login.cy.ts
+* Testing de diversas funcionalidad de la vista privada
+
+* Fix de la funcionalidad de organizar links en versión smartphone
 
 ## Remake 2 (frontend)
 Editar y reestructurar todo lo que tiene que ver con la vista privada
