@@ -26,6 +26,7 @@ Cypress.Commands.add("loginByApi", () => {
 });
 
 declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace Cypress {
         interface Chainable {
             loginByApi(): Chainable<void>;
