@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="vite/client" />
 
-import { frontUrl, backUrl} from "../support/constants";
+import { frontUrl, backUrl, testingUser} from "../support/constants";
 
 Cypress.Commands.add("loginByApi", () => {
 
@@ -13,8 +13,8 @@ Cypress.Commands.add("loginByApi", () => {
         method: "POST",
         url: `${backUrl}auth/login`,
         body: {
-            email: "testing@user.es",
-            password: "12345678",
+            email: testingUser.email,
+            password: testingUser.password,
         },
     })
         // Metemos el token recibido en localStorage

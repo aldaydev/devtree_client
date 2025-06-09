@@ -30,6 +30,7 @@ export default function AdminNavigation() {
             </Link>
 
             <button
+                id="closeSession"
                 className="p-[7px] bg-green text-dark uppercase md:py-2 md:px-3 font-black text-xs rounded-lg cursor-pointer hover:bg-green-light hover:transition-colors tracking-wide flex items-center gap-2 scale-90 sm:scale-100"
                 onClick={logout}
             >

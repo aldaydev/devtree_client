@@ -136,6 +136,7 @@ export default function AccountView() {
                 <button
                     className="bg-red-600 p-2 hover:bg-red-500 text-lg uppercase text-dark rounded-lg font-bold cursor-pointer w-full my-5"
                     onClick={handleDeleteAccount}
+                    id='deleteAccount'
                 >
                     Eliminar Cuenta
                 </button>

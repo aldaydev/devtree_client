@@ -25,6 +25,7 @@ export default function DeleteAccountModal({setConfirmationModal, deleteAccountM
                 <button 
                     onClick={() => deleteAccountMutation.mutate()}
                     className="bg-red-600 hover:bg-red-500 px-6 py-3 rounded-lg text-dark font-bold"
+                    id="confirmDeletion"
                 >
                     CONFIRMAR
                 </button>

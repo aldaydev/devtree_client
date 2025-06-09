@@ -1,4 +1,4 @@
-import { frontUrl, registerTestingUser} from "../support/constants";
+import { frontUrl, testingUser} from "../support/constants";
 
 describe('Registrar un nuevo usuario', () => {
     it('Deberá crear al usuario y llevar a la página de login', () => {
@@ -6,11 +6,11 @@ describe('Registrar un nuevo usuario', () => {
         cy.visit(`${frontUrl}auth/register`);
 
         // Escribimos los datos en el formulario
-        cy.get('#name').type(registerTestingUser.name);
-        cy.get('#email').type(registerTestingUser.email);
-        cy.get('#username').type(registerTestingUser.username);
-        cy.get('#password').type(registerTestingUser.password);
-        cy.get('#password_confirmation').type(registerTestingUser.password);
+        cy.get('#name').type(testingUser.name);
+        cy.get('#email').type(testingUser.email);
+        cy.get('#username').type(testingUser.username);
+        cy.get('#password').type(testingUser.password);
+        cy.get('#password_confirmation').type(testingUser.password);
 
         // Enviamos los datos
         cy.get('input[type="submit"]').click();
@@ -20,6 +20,7 @@ describe('Registrar un nuevo usuario', () => {
 
         // Comprobar que se redirige a la página de /auth/login
         cy.url().should('include', '/auth/login');
+        
     })
 
 })

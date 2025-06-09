@@ -21,7 +21,7 @@ export default function SortableTreeLink({link}: DevTreeLinkProps) {
         <li 
             ref={setNodeRef}
             style={style}
-            className="bg-white px-5 py-2 flex items-center gap-5 rounded-lg"
+            className="bg-white px-5 py-2 flex items-center gap-5 rounded-lg touch-none"
             {...attributes}
             {...listeners}
         >
