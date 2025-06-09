@@ -1,23 +1,36 @@
 /// <reference types="cypress" />
 /// <reference types="vite/client" />
 
-Cypress.Commands.add('loginByApi', () => {
+import { frontUrl, backUrl} from "../support/constants";
+
+Cypress.Commands.add("loginByApi", () => {
+
+    // Visitamos la app para inicializar el navegador de cypress
+    cy.visit(`${frontUrl}/`);
+
+    //Hacemos el login a través de la API directamente
     cy.request({
-        method: 'POST',
-        url: 'http://localhost:4000/auth/login',
+        method: "POST",
+        url: `${backUrl}auth/login`,
         body: {
-            email: 'testing@user.es',
-            password: '12345678'
+            email: "testing@user.es",
+            password: "12345678",
         },
     })
-})
+        // Metemos el token recibido en localStorage
+        .then((response) => {
+            cy.window().then((win) => {
+                win.localStorage.setItem("AUTH_TOKEN", response.body);
+            });
+        });
+});
 
 declare global {
     namespace Cypress {
         interface Chainable {
-            loginByApi(): Chainable<void>
+            loginByApi(): Chainable<void>;
         }
     }
 }
 
-export {}
+export {};

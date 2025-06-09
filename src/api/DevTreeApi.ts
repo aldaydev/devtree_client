@@ -5,7 +5,6 @@ import type { AccountForm, LoginForm, ProfileForm, PublicUserData, RegisterForm,
 
 export async function registerUser(formData: RegisterForm){
     try {
-        console.log(formData);
         const {data} = await api.post<string>(`/auth/register`, formData);
         return data;
     } catch (error) {
