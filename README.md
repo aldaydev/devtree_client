@@ -12,6 +12,7 @@ Realización de testing con CYPRESS
   Creamos script => "cypress:open": "cypress open"
   Con este script hacemos que cypress "escuche" y podremos ejecutar nuestros tests
   (Solucionar error cypress.config.ts) => cypress.config.mjs
+  Instalar los types de cypress para TS => npm install --save-dev @cypress/webpack-dev-server
 
 * Testing de login /cypress/e2e/login.cy.ts
 
