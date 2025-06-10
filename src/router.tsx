@@ -11,6 +11,7 @@ import HomeView from './views/HomeView';
 import AuthProvider from './context/AuthProvider';
 import Header from './components/Header/Header';
 import AccountView from './views/AccountView';
+import Footer from './components/Footer';
 
 export default function Router() {
     return(
@@ -38,8 +39,8 @@ export default function Router() {
                 <Route path='/404' element={<AuthLayout/>}>
                     <Route index={true} element={<NotFoundView/>}/>
                 </Route>
-
             </Routes>
+            <Footer/>
         </AuthProvider>
         </BrowserRouter>
     )
