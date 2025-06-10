@@ -16,7 +16,7 @@ export async function registerUser(formData: RegisterForm){
 
 export async function login(formData : LoginForm) {
     try {
-        const {data} = await api.post<string>(`/auth/login`, formData);
+        const {data} = await api.post<{token: string}>(`/auth/login`, formData);
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {

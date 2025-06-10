@@ -29,7 +29,8 @@ export default function LoginView() {
             toast.error(error.message);
         },
         onSuccess: (data) => {
-            localStorage.setItem('AUTH_TOKEN', data!);
+            console.log(data);
+            localStorage.setItem('AUTH_TOKEN', data!.token);
             setIsLoggedIn(true);
             navigate('/admin');
         }
