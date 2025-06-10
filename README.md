@@ -28,7 +28,9 @@ Mlink es una app tipo "link tree" pensada para músicos. En ella puedes crear tu
 
 [![VER REPOSITORIO](https://img.shields.io/badge/📂_Repositorio_Backend-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aldaydev/mlink_server)
 
-----------------------------------------
+----------------------------------------------
+
+A partir de aquí podrás ver mis anotaciones sobre cada "sprint" o "rama" en la que ido trabajando. 
 
 ## Remake 3 (frontend)
 
