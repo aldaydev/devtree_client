@@ -12,7 +12,10 @@ export default function PublicUserData({ data }: HandleDataProps) {
 
     return (
         <main className="space-y-6 text-white py-3 res-padding w-[100%] sm:pt-[30px]">
-            <header className="space-y-3 text-white flex flex-col sm:flex-row sm:justify-center">
+            <header 
+                className={`space-y-3 text-white flex flex-col sm:justify-center gap-3 sm:gap-5 ${!data.description ? "sm:flex-col sm:gap-1 sm:items-center" : "sm:flex-row"}`
+                    
+            }>
 
                 {data.image &&
                     <img src={data.image} alt={`Foto de ${data.name}`} className="max-w-[250px] mx-auto sm:mx-0" />
@@ -32,7 +35,7 @@ export default function PublicUserData({ data }: HandleDataProps) {
             </header>
 
 
-            <div className="mt-20 flex flex-col gap-6 sm:max-w-[80%] sm:mx-auto ">
+            <div className="mt-20 flex flex-col gap-6 sm:max-w-[600px] sm:mx-auto ">
                 {
                     links.length ?
                         links.map(link => (
