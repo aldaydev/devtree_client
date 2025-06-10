@@ -11,19 +11,22 @@ Mlink es una app tipo "link tree" pensada para músicos. En ella puedes crear tu
 ### 🚀 LENGUAJES  
 ![TYPESCRIPT](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-
-
 ### 🛠️ ENTORNO DE DESARROLLO  
-![NODE.JS](https://img.shields.io/badge/NODE.JS-339933?style=for-the-badge&logo=node.js&logoColor=white) ![EXPRESS](https://img.shields.io/badge/EXPRESS-000000?style=for-the-badge&logo=express&logoColor=white) ![NODEMON](https://img.shields.io/badge/NODEMON-76D04B?style=for-the-badge&logo=npm&logoColor=white)
+![REACT](https://img.shields.io/badge/REACT-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+
+### 🗄️ ESTILOS
+![TAILWIND CSS](https://img.shields.io/badge/TAILWIND_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
 ### 📦 DEPENDENCIAS  
-![BCRYPT](https://img.shields.io/badge/BCRYPT-CC3534?style=for-the-badge&logo=npm&logoColor=white) ![CORS](https://img.shields.io/badge/CORS-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![DOTENV](https://img.shields.io/badge/DOTENV-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![EXPRESS-VALIDATOR](https://img.shields.io/badge/EXPRESS--VALIDATOR-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![FORMIDABLE](https://img.shields.io/badge/FORMIDABLE-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![JSONWEBTOKEN](https://img.shields.io/badge/JSONWEBTOKEN-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![SLUG](https://img.shields.io/badge/SLUG-CC3534?style=for-the-badge&logo=npm&logoColor=white)  ![UUID](https://img.shields.io/badge/UUID-CC3534?style=for-the-badge&logo=npm&logoColor=white)
-
-### 🗄️ BASE DE DATOS  
-![MONGOOSE](https://img.shields.io/badge/MONGOOSE-880000?style=for-the-badge&logo=mongodb&logoColor=white)  ![MONGODB](https://img.shields.io/badge/MONGODB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![REACT ROUTER DOM](https://img.shields.io/badge/REACT_ROUTER_DOM-CA4245?style=for-the-badge&logo=react&logoColor=white) ![REACT HOOK FORM](https://img.shields.io/badge/REACT_HOOK_FORM-EC5990?style=for-the-badge&logo=react&logoColor=white) ![REACT QUERY](https://img.shields.io/badge/REACT_QUERY-FF4154?style=for-the-badge&logo=react&logoColor=white) ![REACT SLUGIFY](https://img.shields.io/badge/REACT_SLUGIFY-5A32A3?style=for-the-badge&logo=react&logoColor=white) ![AXIOS](https://img.shields.io/badge/AXIOS-5A29E4?style=for-the-badge&logo=npm&logoColor=white) ![SONNER](https://img.shields.io/badge/SONNER-333333?style=for-the-badge&logo=npm&logoColor=white)
 
 ### 🧪 TESTING  
-![JEST](https://img.shields.io/badge/JEST-C21325?style=for-the-badge&logo=jest&logoColor=white)  ![SUPERTEST](https://img.shields.io/badge/SUPERTEST-CC3534?style=for-the-badge&logo=npm&logoColor=white)
+![CYPRESS](https://img.shields.io/badge/CYPRESS-17202C?style=for-the-badge&logo=cypress&logoColor=white)
+
+## Enlace al repositorio del back:
+
+[![VER REPOSITORIO](https://img.shields.io/badge/📂_Repositorio_Backend-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aldaydev/mlink_server)
 
 ----------------------------------------
 
