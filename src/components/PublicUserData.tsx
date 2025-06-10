@@ -13,7 +13,7 @@ export default function PublicUserData({ data }: HandleDataProps) {
     return (
         <main className="space-y-6 text-white py-3 res-padding w-[100%] sm:pt-[30px]">
             <header 
-                className={`space-y-3 text-white flex flex-col sm:justify-center gap-3 sm:gap-5 ${!data.description ? "sm:flex-col sm:gap-1 sm:items-center" : "sm:flex-row"}`
+                className={`space-y-3 text-white flex flex-col items-center justify-center gap-3 sm:gap-5`
                     
             }>
 
@@ -25,7 +25,7 @@ export default function PublicUserData({ data }: HandleDataProps) {
                     <p className="text-4xl text-center font-black">
                         {data.username}
                     </p>
-                    <p className="text-lg text-center font-bold text-balance">
+                    <p className="text-lg text-center font-light text-balance">
                         {data.description}
                     </p>
                 </div>
@@ -63,7 +63,7 @@ export default function PublicUserData({ data }: HandleDataProps) {
                             </a>
                         ))
                         :
-                        <p className="text-center">Este perfil aún no tiene enlaces</p>
+                        <p className="text-center text-2xl mt-7">Este perfil aún no tiene enlaces</p>
                 }
             </div>
 
