@@ -9,7 +9,7 @@ export async function registerUser(formData: RegisterForm){
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {
-            throw new Error(error.response.data);
+            throw new Error(error.response.data.error);
         }
     }
 }
@@ -21,7 +21,7 @@ export async function login(formData : LoginForm) {
     } catch (error) {
         if (isAxiosError(error) && error.response) {
             console.log('ERROR', error);
-            throw new Error(error.response.data);
+            throw new Error(error.response.data.error);
         }
     }
 }
