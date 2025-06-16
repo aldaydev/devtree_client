@@ -63,8 +63,6 @@ export default function ProfileView() {
             setImageError("Tamaño de imágen máximo 500kb");
         }
 
-        console.log(file.size);
-
         const reader = new FileReader();
 
         reader.onload = (event) => {

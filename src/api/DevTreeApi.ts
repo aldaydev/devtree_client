@@ -74,7 +74,7 @@ export async function deleteAccount() {
 export async function uploadImage(file: File)  {
     
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('image', file);
     try {
         const {data : {image}} : {data: {image: string}} = await api.post('/user/image', formData);
         console.log('IMAGE',image);
